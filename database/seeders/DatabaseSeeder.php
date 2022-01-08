@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Review;
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +18,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $user = User::factory()->create([
+            'username'=> 'rudis',
+            'email'=> 'rudis@email',
+            'password'=> 'password'
+        ]);
+
+//        User::factory(5)->create();
+
+        Post::factory(5)->create();
+
+        Review::factory(5)->create();
+
     }
 }
