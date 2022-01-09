@@ -11,7 +11,7 @@ class ReviewController extends Controller
     public function store(User $user)
     {
         request()->validate([
-            'body' => 'required',
+            'body' => 'required|max:524',
             'rating' => 'required|numeric|between:1,10'
         ]);
 
@@ -27,6 +27,11 @@ class ReviewController extends Controller
 
     public function destroy(Review $review)
     {
+        if(auth()->user()->id !== $review->reviewer->id && auth()->user()->cannot('admin'))
+        {
+            abort('403');
+        }
+
         $review->delete();
 
         return back()->with('success', 'Atsauksme izdzēsta!');

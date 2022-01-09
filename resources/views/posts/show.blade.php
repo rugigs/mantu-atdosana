@@ -30,7 +30,7 @@
                                     @csrf
                                     @method('delete')
 
-                                    <button class="text-s text-red-600 mt-4">Izdzēst</button>
+                                    <button class="text-s text-red-600 mt-4">Dzēst</button>
                                 </form>
                             </div>
                         @endif

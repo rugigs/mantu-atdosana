@@ -14,13 +14,15 @@ Route::get('post/create', [PostController::class, 'create'])->middleware('auth')
 Route::post('posts', [PostController::class, 'store'])->middleware('auth');   //publicēt sludinājumu
 Route::get('posts/{post}/edit', [PostController::class, 'edit'])->middleware('auth');    //parāda sludinājuma rediģēšanas lapu
 Route::patch('posts/{post}', [PostController::class, 'update'])->middleware('auth');    //saglabā rediģēto sludinājumu
-Route::delete('posts/{post}', [PostController::class, 'destroy'])->middleware('auth');
+Route::delete('posts/{post}', [PostController::class, 'destroy'])->middleware('auth');  //izdzēš
 
 
 Route::get('users/{user}', [ProfileController::class, 'show']);     //parāda lietotāja sludinājumus un atsauksmes
 Route::get('users/{user}/edit', [ProfileController::class, 'edit'])->middleware('auth');    //parāda lietoāja rediģēšanas lapu
 Route::patch('users/{user}', [ProfileController::class, 'update'])->middleware('auth');     //saglabā veiktās izmaiņas lietotāja datos
 Route::delete('users/{user}', [ProfileController::class, 'destroy'])->middleware('auth');    //izdzēš lietotāja kontu
+Route::get('users', [ProfileController::class, 'index'])->middleware('admin');
+Route::delete('admin/users/{user}', [ProfileController::class, 'destroyAdmin'])->middleware('admin');
 
 Route::post('users/{user}/review', [ReviewController::class, 'store'])->middleware('auth'); ;     //saglabā izveidoto atsauksmi
 Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->middleware('auth'); ;     //saglabā izveidoto atsauksmi

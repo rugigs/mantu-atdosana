@@ -7,7 +7,7 @@
             <p> <span class="inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded">{{ $review->rating }}</span> no 10</p>
         </div>
 
-        <div class="w-full">
+        <div class="w-full ">
             <headers class="mb-4">
                 <h3 class="font-bold">{{ $review->reviewer->username }}</h3>
                 <p class="text-xs">
@@ -16,7 +16,7 @@
                 </p>
             </headers>
 
-            <p class="mt-2">
+            <p class="mt-2 break-all">
                {{ $review->body }}
             </p>
 
@@ -28,7 +28,7 @@
                         @csrf
                         @method('delete')
 
-                        <button class="text-xs text-red-600">Izdzēst</button>
+                        <button class="text-xs text-red-600">Dzēst</button>
                     </form>
                 </div>
             @endif

@@ -17,6 +17,7 @@
 
 
                 <input type="text"
+                       maxlength="100"
                        name="search"
                        placeholder="Meklēšana"
                        class="bg-transparent placeholder-black font-semibold text-sm"

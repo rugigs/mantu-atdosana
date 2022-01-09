@@ -25,6 +25,9 @@
                         <button class="text-m font-bold uppercase">Sveiki, {{ auth()->user()->username }}!</button>
                     </x-slot>
 
+                    @can('admin')
+                        <x-dropdown-item href="/users">Visi Lietotāji</x-dropdown-item>
+                    @endcan
                     <x-dropdown-item href="/users/{{ auth()->user()->id }}">Mani sludinājumi</x-dropdown-item>
                     <x-dropdown-item href="/post/create">Jauns sludinājums</x-dropdown-item>
                     <x-dropdown-item href="/users/{{ auth()->user()->id }}/edit">Rediģēt kontu</x-dropdown-item>
@@ -34,7 +37,7 @@
                             @method('delete')
                             <button class="text-s text-red-600">Dzēst kontu</button>
                         </form></x-dropdown-item>
-                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Izrakstīties</x-dropdown-item>
+                    <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Atslēgties</x-dropdown-item>
 
                     <form id="logout-form" method="post" action="/logout" class="hidden">
                         @csrf

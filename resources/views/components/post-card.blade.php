@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <h1 class="text-3xl">
+                    <h1 class="text-3xl break-all">
                         <a href="/posts/{{ $post->id}}">
                             {{ $post->title }}
                         </a>

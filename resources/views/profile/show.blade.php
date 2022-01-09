@@ -21,9 +21,13 @@
                     </h1>
                 @endauth
 
-                @foreach($user->reviews as $review)
-                    <x-post-comment :review="$review" />
-                @endforeach
+                @if($user->reviews->count())
+                    @foreach($user->reviews as $review)
+                        <x-post-comment :review="$review" />
+                    @endforeach
+                @else
+                        <p class="text-center">Par šo lietoāju nav atsauksmes.</p>
+                @endif
             </section>
         </main>
     </section>
